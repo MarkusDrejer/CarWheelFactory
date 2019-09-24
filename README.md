@@ -6,9 +6,9 @@ Car Wheel Factory SWC Project
 1 Queue which uses Java Queue and is shared between all the Threads
    -Try to distribute the workload evenly
   
-3 Types of Wheel types
-   -Primarily time difference between types: 10, 14 and 17 Seconds
-   -Maybe use 3 POJO for each type
+3 Types of Wheels
+   -Primarily a time difference between types: 10, 14 and 17 Seconds
+   -Maybe use POJO for each type
   
 Think over interfaces and use as much as possible
 
