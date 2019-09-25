@@ -1,7 +1,7 @@
 package Visual;
 
-import Model.ConveyorBelt;
-import Model.DataContainer;
+import Logic.ConveyorBelt;
+import Data.DataContainer;
 import Model.Wheel;
 
 import java.util.Scanner;

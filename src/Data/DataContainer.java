@@ -1,4 +1,6 @@
-package Model;
+package Data;
+
+import Model.Wheel;
 
 import java.util.LinkedList;
 import java.util.Queue;

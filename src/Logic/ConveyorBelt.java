@@ -1,4 +1,7 @@
-package Model;
+package Logic;
+
+import Data.DataContainer;
+import Model.Wheel;
 
 public class ConveyorBelt implements Runnable {
 
@@ -40,7 +43,7 @@ public class ConveyorBelt implements Runnable {
                         System.out.println("Commencing work on belt: " + name);
                         Thread.sleep(assemblyTime);
                         System.out.println("Wheel is done on belt: " + name);
-                        System.out.println("Belt: " + name + " has completed: " + ++wheelsDone);
+                        System.out.println("Belt: " + name + " has completed: " + ++wheelsDone + " wheels");
 
                         if((wheelsDone % 10) == 0) {
                             System.out.println("Belt: " + name + " is being cleaned");
