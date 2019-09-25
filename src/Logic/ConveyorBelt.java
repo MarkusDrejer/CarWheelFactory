@@ -26,8 +26,6 @@ public class ConveyorBelt implements Runnable {
 
                     Wheel currentWheel = DataContainer.wheelQueue.poll();
 
-                    synchronized (currentWheel) {
-
                         switch (currentWheel.getType()) {
                             case 1:
                                 assemblyTime = 10000;
@@ -54,8 +52,6 @@ public class ConveyorBelt implements Runnable {
                         System.out.println("Preparing for next run on belt: " + name);
                         Thread.sleep(2000);
                         System.out.println("Ready for next run on belt: " + name);
-
-                    }
                 }
 
             } catch(InterruptedException e){
