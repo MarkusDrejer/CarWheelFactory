@@ -18,16 +18,17 @@ public class ConveyorBelt implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(offset);
+                //Thread.sleep(offset);
 
                 if (DataContainer.wheelQueue.isEmpty()) {
                     Thread.sleep(1000);
                 } else {
+                    synchronized (DataContainer.wheelQueue) {
                         IWheel currentWheel = DataContainer.wheelQueue.poll();
 
-                        System.out.println("Commencing work on belt: " + name);
+                        System.out.println("Commencing work on a " + currentWheel.getName() + " belt: " + name);
                         Thread.sleep(currentWheel.getAssemblyTime());
-                        System.out.println("Wheel is done on belt: " + name);
+                        System.out.println("A " + currentWheel.getName() + " is done on belt: " + name);
                         System.out.println("Belt: " + name + " has completed: " + ++wheelsDone + " wheels");
 
                         if ((wheelsDone % 10) == 0) {
@@ -39,10 +40,11 @@ public class ConveyorBelt implements Runnable {
                         System.out.println("Preparing for next run on belt: " + name);
                         Thread.sleep(2000);
                         System.out.println("Ready for next run on belt: " + name);
+                    }
                 }
 
-            } catch(InterruptedException e){
-                e.printStackTrace();
+            } catch(Exception e){
+                System.out.println(e.getMessage());
             }
         }
     }
