@@ -13,6 +13,7 @@ public class DataContainer {
         wheelQueue.add(wheel);
     }
 
+    //Synchronized methods to avoid several Threads reading the same item(s)
     public synchronized static IWheel remove() {
         return wheelQueue.poll();
     }
