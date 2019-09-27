@@ -7,13 +7,17 @@ import java.util.Queue;
 
 public class DataContainer {
 
-    public static volatile Queue<IWheel> wheelQueue = new LinkedList<>();
+    private static volatile Queue<IWheel> wheelQueue = new LinkedList<>();
+
+    public static void addToList(IWheel wheel) {
+        wheelQueue.add(wheel);
+    }
 
     public synchronized static IWheel remove() {
         return wheelQueue.poll();
     }
 
-    public synchronized static boolean checkEmpty() {
-        return wheelQueue.isEmpty();
+    public synchronized static int left() {
+        return wheelQueue.size();
     }
 }

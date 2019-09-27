@@ -17,10 +17,10 @@ public class UI {
     private Scanner console = new Scanner(System.in);
 
     public UI() {
-        run();
+        startProgram();
     }
 
-    private void run() {
+    private void startProgram() {
         for (int i = 1; i <= MAX_T; i++) {
             Runnable CB = new ConveyorBelt("Belt " + i);
             pool.execute(CB);
@@ -37,13 +37,13 @@ public class UI {
             for(int i = 0; i < wheelAmount; i++) {
                 switch (wheelType) {
                     case 1:
-                        DataContainer.wheelQueue.add(new Normal());
+                        DataContainer.addToList(new Normal());
                         break;
                     case 2:
-                        DataContainer.wheelQueue.add(new Winter());
+                        DataContainer.addToList(new Winter());
                         break;
                     case 3:
-                        DataContainer.wheelQueue.add(new HighEnd());
+                        DataContainer.addToList(new HighEnd());
                         break;
                 }
             }
