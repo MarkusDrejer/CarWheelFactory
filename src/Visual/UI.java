@@ -22,7 +22,7 @@ public class UI {
 
     private void run() {
         for (int i = 1; i <= MAX_T; i++) {
-            Runnable CB = new ConveyorBelt("Belt " + i, i);
+            Runnable CB = new ConveyorBelt("Belt " + i);
             pool.execute(CB);
         }
 
