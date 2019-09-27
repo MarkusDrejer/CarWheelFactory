@@ -5,7 +5,8 @@ Car Wheel Factory SWC Project
 
 2. 1 Queue which uses Java Queue and is shared between all the Threads
    - Try to distribute the workload evenly
-   -LinkedList vs PriorityQueue vs PriorityBlockedQueue(ThreadSafe)
+   - Consider alternatives to LinkedList
+   - Emergency stops
    
 3. 3 Types of Wheels
    - Primarily a time difference between types: 10, 14 and 17 Seconds and Name

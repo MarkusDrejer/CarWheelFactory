@@ -6,7 +6,7 @@ import Model.IWheel;
 public class ConveyorBelt implements Runnable {
 
     private String name;
-    private int wheelsDone = 0;
+    private int wheelsDone;
 
     public ConveyorBelt(String name) {
         this.name = name;
@@ -24,7 +24,7 @@ public class ConveyorBelt implements Runnable {
                     System.out.println("Commencing work on a " + currentWheel.getName() + " on belt: " + name);
                     Thread.sleep(currentWheel.getAssemblyTime());
                     System.out.println("A " + currentWheel.getName() + " is done on belt: " + name);
-                    System.out.println("Belt: " + name + " has completed: " + ++wheelsDone + " wheels");
+                    System.out.println("Belt: " + name + " has completed: " + ++wheelsDone + " wheel(s)");
 
                     if ((wheelsDone % 10) == 0) {
                         System.out.println("Belt: " + name + " is being cleaned");
