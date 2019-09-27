@@ -6,7 +6,6 @@ import Model.IWheel;
 public class ConveyorBelt implements Runnable {
 
     private String name;
-    private int assemblyTime;
     private int offset;
     private int wheelsDone = 0;
 
