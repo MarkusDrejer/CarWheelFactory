@@ -1,7 +1,7 @@
 package Logic;
 
 import Data.DataContainer;
-import Model.Wheel;
+import Model.IWheel;
 
 public class ConveyorBelt implements Runnable {
 
@@ -23,27 +23,14 @@ public class ConveyorBelt implements Runnable {
                 if (DataContainer.wheelQueue.isEmpty()) {
                     Thread.sleep(1000);
                 } else {
-
-                    Wheel currentWheel = DataContainer.wheelQueue.poll();
-
-                        switch (currentWheel.getType()) {
-                            case 1:
-                                assemblyTime = 10000;
-                                break;
-                            case 2:
-                                assemblyTime = 14000;
-                                break;
-                            case 3:
-                                assemblyTime = 17000;
-                                break;
-                        }
+                        IWheel currentWheel = DataContainer.wheelQueue.poll();
 
                         System.out.println("Commencing work on belt: " + name);
-                        Thread.sleep(assemblyTime);
+                        Thread.sleep(currentWheel.getAssemblyTime());
                         System.out.println("Wheel is done on belt: " + name);
                         System.out.println("Belt: " + name + " has completed: " + ++wheelsDone + " wheels");
 
-                        if((wheelsDone % 10) == 0) {
+                        if ((wheelsDone % 10) == 0) {
                             System.out.println("Belt: " + name + " is being cleaned");
                             Thread.sleep(6000);
                             System.out.println("Belt: " + name + " has finished being cleaned");

@@ -1,11 +1,11 @@
 package Data;
 
-import Model.Wheel;
+import Model.IWheel;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class DataContainer {
 
-    public static volatile Queue<Wheel> wheelQueue = new LinkedList<>();
+    public static volatile Queue<IWheel> wheelQueue = new LinkedList<>();
 }

@@ -2,7 +2,9 @@ package Visual;
 
 import Logic.ConveyorBelt;
 import Data.DataContainer;
-import Model.Wheel;
+import Model.HighEnd;
+import Model.Normal;
+import Model.Winter;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
@@ -29,12 +31,22 @@ public class UI {
                     "2. Winter car wheel \n" +
                     "3. High quality car wheel");
             int wheelType = console.nextInt();
+            System.out.println("Input amount");
             int wheelAmount = console.nextInt();
 
             for(int i = 0; i < wheelAmount; i++) {
-                DataContainer.wheelQueue.add(new Wheel(wheelType));
+                switch (wheelType) {
+                    case 1:
+                        DataContainer.wheelQueue.add(new Normal());
+                        break;
+                    case 2:
+                        DataContainer.wheelQueue.add(new Winter());
+                        break;
+                    case 3:
+                        DataContainer.wheelQueue.add(new HighEnd());
+                        break;
+                }
             }
         }
-
     }
 }
