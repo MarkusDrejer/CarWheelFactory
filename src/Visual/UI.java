@@ -1,10 +1,7 @@
 package Visual;
 
 import Logic.ConveyorBelt;
-import Data.DataContainer;
-import Model.HighEnd;
-import Model.Normal;
-import Model.Winter;
+import Logic.QueueFiller;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
@@ -15,6 +12,7 @@ public class UI {
     private static final int MAX_T = 4;
     private ExecutorService pool = Executors.newFixedThreadPool(MAX_T);
     private Scanner console = new Scanner(System.in);
+    private QueueFiller queueFiller = new QueueFiller();
 
     public UI() {
         startProgram();
@@ -28,25 +26,13 @@ public class UI {
 
         while(true) {
             System.out.println("1. Normal car wheel \n" +
-                    "2. Winter car wheel \n" +
-                    "3. High quality car wheel");
+                                "2. Winter car wheel \n" +
+                                 "3. High quality car wheel");
             int wheelType = console.nextInt();
             System.out.println("Input amount");
             int wheelAmount = console.nextInt();
 
-            for(int i = 0; i < wheelAmount; i++) {
-                switch (wheelType) {
-                    case 1:
-                        DataContainer.addToList(new Normal());
-                        break;
-                    case 2:
-                        DataContainer.addToList(new Winter());
-                        break;
-                    case 3:
-                        DataContainer.addToList(new HighEnd());
-                        break;
-                }
-            }
+            queueFiller.addToData(wheelType, wheelAmount);
         }
     }
 }
